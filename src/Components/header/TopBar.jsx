@@ -1,11 +1,35 @@
-import { IoSearchSharp } from "react-icons/io5";
-import { FaCartArrowDown, FaRegUser } from "react-icons/fa";
+
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useEffect } from "react";
+import TopBarRight from "./TopBarRight";
 
 function TopBar() {
+
+    useEffect(() => {
+        const scrollNav = document.querySelector('.topNavScroll');
+        const scrollNavToggle = document.querySelector('.ScrollNav');
+  
+        if (!scrollNav || !scrollNavToggle) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            const isIntersecting = entries[0].isIntersecting;
+
+            if (isIntersecting) {
+                scrollNavToggle.classList.add('hidden'); 
+            } else {
+                scrollNavToggle.classList.remove('hidden'); 
+            }
+        });
+
+        observer.observe(scrollNav);
+
+        return () => {
+            observer.disconnect(); 
+        };
+    }, []);
     return (
-        <div className="flex container mx-auto flex-col sm:flex-row justify-between items-center p-4">
-            <div className="flex space-x-4 mb-2 sm:mb-0">
+        <div className="container flex flex-col items-center justify-between px-4 pt-3 mx-auto topNavScroll sm:flex-row">
+            <div className="flex space-x-4 mb-2 sm:mb-0 max-[640px]:hidden">
                 <div className="flex items-center space-x-1 cursor-pointer">
                     <span>EN</span>
                     <IoMdArrowDropdown />
@@ -15,28 +39,7 @@ function TopBar() {
                     <IoMdArrowDropdown />
                 </div>
             </div>
-            <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-1 cursor-pointer">
-                    <FaRegUser />
-                    <span>My profile</span>
-                </div>
-                <div className="relative flex items-center space-x-1 cursor-pointer">
-                    <FaCartArrowDown className="w-5 h-5" />
-
-                    <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">2</div>
-                </div>
-                <div className="cursor-pointer">
-                    <span>Items</span>
-                </div>
-                <div className="flex gap-2 items-center">
-                    <div className="flex items-center space-x-1 cursor-pointer">
-                        <span>$0.00</span>
-                    </div>
-                    <div className="flex items-center space-x-1 cursor-pointer">
-                        <IoSearchSharp />
-                    </div>
-                </div>
-            </div>
+            <TopBarRight />
         </div>
     )
 }
