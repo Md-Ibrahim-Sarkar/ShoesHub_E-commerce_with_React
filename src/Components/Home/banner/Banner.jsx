@@ -1,4 +1,4 @@
-import img from '../../assets/Images/banner.png'
+import img from '../../../assets/Images/banner.png'
 import Products from './Products'
 
 function Banner() {
@@ -12,16 +12,16 @@ function Banner() {
                     <p className="text-2xl">50% Off</p>
                 </div>
             </div>
-            <div className="container relative mx-auto mt-8">
-                <div className='flex justify-center'>
-                <div className="absolute inset-x-0 grid grid-cols-1 px-4 md:grid-cols-3 sm:grid-cols-2 max-[771px]:hidden -top-32">
-                    <Products />
-                    <Products />
-                    <Products />
-                </div>
-                </div>
+            <div className="container relative flex justify-center mx-auto -mt-32">
+               
+                    <div className=" grid grid-cols-1 px-4 md:grid-cols-3 sm:grid-cols-2 max-[771px]:hidden -top-32 max-w-7xl">
+                        <Products />
+                        <Products />
+                        <Products />
+                    </div>
+              
             </div>
-           
+
         </div>
     )
 }

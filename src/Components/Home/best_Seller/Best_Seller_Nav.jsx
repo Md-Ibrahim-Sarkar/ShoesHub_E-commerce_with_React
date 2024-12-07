@@ -3,7 +3,7 @@ import Best_Seller_Products from './Best_Seller_Products'
 
 function Best_Seller_Nav() {
     return (
-        <div className='xl:mt-[200px] lg:mt-56 md:mt-48  max-[775px]:mt-0'>
+        <div className=' mt-11  max-[775px]:mt-0'>
             <h1 class="text-3xl font-bold text-center mb-8">
                 BEST SELLER
             </h1>

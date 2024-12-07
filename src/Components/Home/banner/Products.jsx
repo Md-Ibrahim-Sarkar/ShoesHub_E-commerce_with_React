@@ -1,10 +1,10 @@
 
-import Product_img from '../../assets/Images/first-img-1.png'
+import Product_img from '../../../assets/Images/first-img-1.png'
 function Products() {
     return (
         <div >
             <div className="relative max-w-full bg-white cursor-pointer hover:scale-105 hover:-translate-y-3 hover:duration-300">
-                <img alt="Black quilted maxi cross bag" className="object-cover w-full h-72" height="354" src={Product_img} />
+                <img alt="Black quilted maxi cross bag" className="object-cover w-full h-72 xl:h-80" height="354" src={Product_img} />
                 <h2 className="text-[20px] absolute text-black top-6 left-5 font-semibold">
                     FS - QUILTED MAXI CROSS BAG
                 </h2>
@@ -16,7 +16,7 @@ function Products() {
                         24% Off
                     </span>
                 </div>
-                <div className="absolute bottom-3 right-3 text-[30px] text-main-color font-bold mt-2">
+                <div className="absolute bottom-3 right-3 lg:text-[30px] text-main-color font-bold mt-2 md:text-lg">
                     $299.43
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full duration-300 hover:bg-black hover:opacity-50">
