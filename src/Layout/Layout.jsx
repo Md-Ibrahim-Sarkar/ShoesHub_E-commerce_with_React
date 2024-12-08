@@ -1,4 +1,7 @@
-import Home from "../Pages/home/Home"
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/header/Navbar";
+import TopBar from "../Components/header/TopBar";
+import Home from "../Pages/Home"
 import { FaCartArrowDown, FaRegUser } from "react-icons/fa";
 
 function Layout() {
@@ -11,7 +14,9 @@ function Layout() {
 
   return (
     <div className="relative">
-      <Home />
+      <TopBar />
+      <Navbar />
+      <Outlet />
       <div className="fixed cursor-pointer right-3 top-32 lg:hidden">
         <div className="relative flex items-center space-x-1 cursor-pointer">
           <FaCartArrowDown className="w-5 h-5" />
